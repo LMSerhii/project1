@@ -21,13 +21,23 @@ async function dataGetForID(id) {
 }
 
 async function createNewContact(data) {
-  try {   
-    const response = await axios.post(
-      `${common.BASE_URL}work/contacts/`,
-      data
-    );
+  try {
+    const response = await axios.post(`${common.BASE_URL}work/contacts/`, data);
     console.log(response);
-  } catch (error) {console.log(error)}
+  } catch (error) {
+    console.log(error);
+  }
 }
 
-export { getData, dataGetForID, createNewContact };
+async function deleteContacts(id) {
+  try {
+    const response = await axios.delete(
+      `${common.BASE_URL}work/contacts/${id}`
+    );
+    return response;
+  } catch (error) {
+    console.log(error.message);
+  }
+}
+
+export { getData, dataGetForID, createNewContact, deleteContacts };
