@@ -40,4 +40,21 @@ async function deleteContacts(id) {
   }
 }
 
-export { getData, dataGetForID, createNewContact, deleteContacts };
+async function updateContacts(id, data) {
+  try {
+    const respons = await axios.put(
+      `${common.BASE_URL}work/contacts/${id}`,
+      data
+    );
+    console.log(respons);
+  } catch (error) {
+    console.log(error.message);
+  }
+}
+export {
+  getData,
+  dataGetForID,
+  createNewContact,
+  deleteContacts,
+  updateContacts,
+};
