@@ -1,13 +1,16 @@
-import axios from 'axios';
-import { common } from './common';
+import { getData, dataGetForID } from './js/api_service.js'
 
-async function getData() {
+
+// console.log(getData());
+
+async function gedDataID(id){
   try {
-    const response = await axios.get(`${common.BASE_URL}work/contacts/`);
-    return response;
+    const result = await dataGetForID(id)
+    console.log(result.data);
+    return result.data;
   } catch (error) {
     console.log(error.message);
   }
 }
 
-getData();
+console.log(gedDataID(19))
