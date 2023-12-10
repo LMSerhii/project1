@@ -1,4 +1,4 @@
-import { getData, dataGetForID } from './js/api_service.js'
+import { getData, dataGetForID, createNewContact } from './js/api_service.js'
 
 
 // console.log(getData());
@@ -13,4 +13,11 @@ async function gedDataID(id){
   }
 }
 
-console.log(gedDataID(19))
+async function addContact(dataUser){
+try{
+  await createNewContact(dataUser)
+} 
+catch(error){console.log(error)}
+}
+
+// addContact({name: "Kateryna", phone: "1234567"});
