@@ -3,6 +3,7 @@ import {
   dataGetForID,
   createNewContact,
   deleteContacts,
+  updateContacts,
 } from './js/api_service.js';
 
 // console.log(getData());
@@ -33,6 +34,14 @@ async function clearContact(dataID) {
     console.log(error.message);
   }
 }
-clearContact(65);
+// clearContact(65);
 
 // addContact({name: "Kateryna", phone: "1234567"});
+async function updateContactsInfo(id, data) {
+  try {
+    const response = await updateContacts(id, data);
+  } catch (error) {
+    console.log(error.message);
+  }
+}
+// updateContactsInfo(64, { name: 'Iryna', phone: '1234567' });
